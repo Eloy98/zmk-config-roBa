@@ -123,6 +123,17 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <180>;
         };
+
+        ltb: ltb {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LTB";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <150>;
+            quick-tap-ms = <200>;
+        };
     };
 
     keymap {
@@ -130,7 +141,7 @@
 
         default_layer {
             bindings = <
-&kp Q            &kp W            &lt 5 E       &kp R              &kp T                                                         &kp Y             &kp U          &lt 5 I       &kp O             &kp P
+&kp Q            &kp W            &ltb 5 E      &kp R              &kp T                                                         &kp Y             &kp U          &lt 5 I       &kp O             &kp P
 &hmr LEFT_GUI A  &hmr LEFT_ALT S  &hmr LCTRL D  &hmr LEFT_SHIFT F  &kp G        &kp LS(LG(S))                         &kp MINUS  &kp H             &hmr RSHIFT J  &hmr RCTRL K  &hmr RIGHT_ALT L  &hmr RIGHT_GUI SEMI
 &kp Z            &kp X            &kp C         &kp V              &kp B        &lt_to_layer_0 6 INTERNATIONAL_4      &mo 6      &kp N             &kp M          &kp COMMA     &kp DOT           &kp SLASH
 &kp LCTRL        &kp LEFT_WIN     &kp LEFT_ALT  &kp TAB            &lt 1 SPACE  &mo 3                                 &mo 4      &ltq 2 BACKSPACE                                                 &kp DEL
@@ -168,7 +179,7 @@
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
         };
 
-         MOUSE {
+        MOUSE {
             bindings = <
 &to_layer_0 Q  &to_layer_0 W  &to_layer_0 E  &to_layer_0 R           &to_layer_0 T                                           &to_layer_0 Y    &to_layer_0 U      &kp LC(T)          &to_layer_0 O      &mo 5
 &to_layer_0 A  &to_layer_0 S  &to_layer_0 D  &to_layer_0 F           &to_layer_0 G  &trans                        &kp LC(V)  &kp LC(LS(TAB))  &mkp_exit_AML MB1  &mkp_exit_AML MB3  &mkp_exit_AML MB2  &kp LC(TAB)
@@ -177,7 +188,7 @@
             >;
         };
 
-         SCROLL {
+        SCROLL {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                      &trans  &trans              &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp_exit_AML LCLK  &trans  &trans  &trans
